@@ -1,5 +1,7 @@
+#import sys #this allows you to use the sys.exit command to quit/logout of the application
 from array import *
 import os
+
 print("Welcome to MF.JFAM's Dungeon Run!")
 def print_map(grid, map_Size):
     for i in range(map_Size):
@@ -35,7 +37,38 @@ def create_map(map_Size):
         for y in range(map_Size):
             grid_map[(x,y)] = "x"
     return grid_map
-username = str(input("What is your username?\n> "))
+
+def main():
+    login()
+    
+def login():
+    print("***********************************")
+    print("*          Game Main Menu         *")
+    print("***********************************")
+    print()
+main()
+correct = True
+while correct:
+    name = input("Please Input Your User Name: ")
+    if name == "mfjap". lower():
+        pw = input("Please Enter Your Password:")
+        if pw == "agile":
+            print("Welcome To The Game Zone:")
+            break
+        if pw != "agile":
+            pwi = input("Passwoed Incorrect")
+            if pwi == "y".lower():
+                correct = True
+            else:
+                print("Thank You For Trying Login, Goodbye")
+                quit()
+    if name != "MFJAP".lower():
+        uni = input("User Name Is Not Valid, Will You Try Agin Y/N?")
+        if uni == "y".lower():
+            correct == True
+        else:
+            print("Good Try")
+            quit()
 
 while True:
     os.system("cls")
@@ -128,4 +161,5 @@ while True:
         hero_pos[1] = hero_pos[1] + 1
     else:
         grid_map[hero_pos[0], hero_pos[1]] = "@"
-        
+    main()
+    #sys.exit()
